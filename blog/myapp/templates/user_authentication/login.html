@@ -1,0 +1,40 @@
+{% extends 'base/master.html' %}
+
+{% block title %}
+Login Now!
+{% endblock %}
+
+{% block content %}
+  
+<h1>Login Now</h1>
+
+<style>
+    h5{
+        color: red;
+    }
+</style>
+
+{% for message in messages %}
+<h5>{{message}}</h5>
+{% endfor %}
+
+<form method = "POST" action = "login" >
+    {% csrf_token %}
+    <p>Username:</p>
+    <input type = "text" name = "username" />
+
+    <p>Password:</p>
+    <input type = "password" name = "password" /> 
+    
+    <br>
+
+    <input type = "submit" />
+
+</form>
+
+<br>
+
+<p>Don't have an account? Create one <a href="/register">Here</a>!</p>
+
+
+{% endblock %}

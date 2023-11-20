@@ -1,0 +1,51 @@
+{% extends 'base/master.html' %}
+
+{% block title %}
+Submitted Posts
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+    <h1>See All Our Feedback</h1>
+  </div>
+  
+  <br>
+  
+  <div class="row">
+    <div class="leftcolumn">
+      {% for post in posts reversed %}
+      <div class="card">
+        <a style="text-decoration: none; color: black;" href="/individual-feedback/{{post.id}}">
+          <h2>{{post.title}} </h2>
+          <h3>{{post.created_at}}</h3>
+
+          <b>
+          
+          <br>
+          Author ID: {{post.author_id}} 
+          
+          <br>
+          Post ID: {{post.id}}
+          
+          </b>  
+       
+          
+          <p>{{post.body|truncatewords:20}}</p>
+
+          {% if user == post.author_id %}
+          <br>
+          <b> <a href="/delete/{{post.id}}">delete</a> </b>
+          <!-- Alternative, doesn't matter <b> <a href="delete/{{post.id}}">delete</a> </b> -->
+          {% endif %}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+
+
+
+
+{% endblock %}

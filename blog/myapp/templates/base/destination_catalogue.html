@@ -1,0 +1,52 @@
+{% extends 'base/master.html' %}
+
+{% block title %}
+Travel Catalogue
+{% endblock %}
+
+{% block content %}
+    <h1>Travel Catalogue</h1>
+     
+    <main class="mt-5 pt-4">
+        <div class="container dark-grey-text mt-5">
+      
+          <!--Grid row-->
+        <div class="row wow fadeIn">
+      
+            <!--Grid column-->
+             <div class="col-md-6 mb-4">
+
+              <h2>{{ object.name }}</h2>
+              <!-- <p>Country: {{ object.country }} | {{ object.label }} </p> -->
+              <p>Country: {{ object.get_country_display }} | {{ object.get_label_display }} </p>
+          
+
+              <!--Load Image. Find a way to fix broken image. think it's a path error
+              It doesn't even load despite being in the same folder path--> 
+              <img src="shinsaibashisuji_1.jpg"  width="460" height="345">
+              <!-- <img src="{{ object.image.url }}" class="card-img-top"> -->
+              
+            </div>
+            
+            <!--Price-->
+            <p class="lead">
+              {% if object.discount_price %} <!--If object has a discount price-->
+              <span class="mr-1">
+                <del>${{ object.price }}</del> <!--Strike out orignal price-->
+              </span>
+              <span>${{ object.discount_price }}</span> <!--Display Discounted price-->
+              {% else %}
+              <span>${{ object.price }}</span>
+              {% endif %}
+            </p>
+  
+            <!--Description-->
+            <p class="lead font-weight-bold">Description</p>
+            <p>{{ object.description }}</p>
+        
+        
+          </div>  
+
+        </div>
+    </main> 
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base/master.html' %}
+
+{% block title %}
+Register Now!
+{% endblock %}
+
+{% block content %}
+  
+<h1>Sign Up Below</h1>
+
+<style>
+    h5{
+        color: red;
+    }
+</style>
+
+{% for message in messages %}
+<h5>{{message}}</h5>
+{% endfor %}
+
+<form method = "POST" action = "register">
+    {% csrf_token %}
+
+    <p>First Name:</p>
+    <input type = "text" name = "first_name" />
+
+    <p>Surname:</p>
+    <input type = "text" name = "last_name" />
+
+    <p>Username:</p>
+    <input type = "text" name = "username" />
+
+    <p>Email:</p>
+    <input type = "email" name = "email" />
+
+    <p>Password:</p>
+    <input type = "password" name = "password1" />
+
+    <p>Confirm Password:</p>
+    <input type = "password" name = "password2" />
+
+    <br>
+
+    <input type = "submit" />
+
+
+
+</form>
+
+<br>
+
+<p>Have an account? Login <a href="/login">Here</a>!</p>
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base/master.html' %}
+
+{% block title %}
+Submitted Posts
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+    <h1>{{individual_posts.author_id}}'s Feedback</h1>
+  </div>
+  
+  <br>
+  
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <a style="text-decoration: none; color: black;">
+          <h2>{{individual_posts.title}} </h2>
+          <h3>{{individual_posts.created_at}}</h3> 
+
+        <b>
+          
+          <br>
+          Author ID: {{individual_posts.author_id}} 
+          
+          <br>
+          Post ID: {{individual_posts.id}}
+          
+        </b>  
+       
+          
+          <p>{{individual_posts.body}}</p> 
+
+       <!-- Figure out why line 39 is returnning an error Page Not Found 404.
+            The Code works fine in display_feedback.html, why not here?  -->
+        <!-- {% if user == individual_posts.author_id %}
+        <br>
+        
+        <b> <a href="delete/{{individual_posts.id}}">delete</a> </b>
+        {% endif %} -->
+       
+        </a>
+      </div>
+     
+    </div>
+  </div>
+  
+
+
+
+
+{% endblock %}

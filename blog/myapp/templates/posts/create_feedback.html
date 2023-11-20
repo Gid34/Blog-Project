@@ -1,0 +1,23 @@
+{% extends 'base/master.html' %}
+
+{% block title %}
+Create Feedback
+{% endblock %}
+
+<div class="header">
+    <h1>Give us Your Feedback!</h1>
+  </div>
+  
+  <br>
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    
+    <form method = "POST">
+    {% csrf_token %} {{form|crispy}}
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    
+    </form> 
+{% endblock %}
