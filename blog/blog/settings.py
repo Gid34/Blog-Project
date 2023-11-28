@@ -13,7 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +26,7 @@ SECRET_KEY = "django-insecure-egn83b@)inab=e49l*d@1si%-!^+roo!jufhs=zdtl07=)%lrm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -145,7 +146,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')] 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static_root') #VENV -> BASE_DIR 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root') #VENV -> BASE_DIR 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

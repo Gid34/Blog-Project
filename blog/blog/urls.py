@@ -16,9 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static #to load the image
+from django.conf import settings # for line 28 onwards
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('myapp.urls')),
     path('', include("django.contrib.auth.urls")),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
+    urlpatterns += static(settings.MEDIA_URL, 
+                        document_root=settings.MEDIA_ROOT)

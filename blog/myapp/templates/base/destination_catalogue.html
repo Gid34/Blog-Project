@@ -15,7 +15,8 @@ Travel Catalogue
       
             <!--Grid column-->
              <div class="col-md-6 mb-4">
-
+              
+             
               <h2>{{ object.name }}</h2>
               <!-- <p>Country: {{ object.country }} | {{ object.label }} </p> -->
               <p>Country: {{ object.get_country_display }} | {{ object.get_label_display }} </p>
@@ -24,7 +25,11 @@ Travel Catalogue
               <!--Load Image. Find a way to fix broken image. think it's a path error
               It doesn't even load despite being in the same folder path--> 
               <!-- Find a way to fix image display--> 
-              <img src="shinsaibashisuji_1.jpg"  width="460" height="345">
+              <img src="/media/shinsaibashisuji_1.jpg"  width="460" height="345">  <!-- Still doesn't work--> 
+
+              <!-- TRY THIS: 
+                 <img src="{{ item.image.url }}" class="card-img-top">
+                 <img src="{{ destination.image.url }}" class="card-img-top"> -->
               <!-- <img src="{{ object.image.url }}" class="card-img-top"> -->
               
             </div>
