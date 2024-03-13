@@ -7,7 +7,9 @@ Submitted Posts
 {% block content %}
 
 <div class="header">
-    <h1>See All Our Feedback</h1>
+    <h1>Discussion Thread</h1>
+
+  
   </div>
   
   <br>
@@ -16,24 +18,31 @@ Submitted Posts
     <div class="leftcolumn">
       {% for post in posts reversed %}
       <div class="card">
-        <a style="text-decoration: none; color: black;" href="/individual-feedback/{{post.id}}">
-          <h2>{{post.title}} </h2>
-          <h3>{{post.created_at}}</h3>
+        <a style="text-decoration: none; color: black;">
+        <!-- <a style="text-decoration: none; color: black;" href="/individual-feedback/{{post.id}}"> -->
+          <h2>"{{post.title}}" </h2>  
 
-          <b>
+
+        
+          <i>{{post.created_at}} by  <b>{{post.author_id}}</b> </i>
+          <!-- <b>
           
-          <br>
-          Author ID: {{post.author_id}} 
+            <br>
+            Author ID: {{post.author_id}} 
+            
+            <br>
+            Post ID: {{post.id}}
           
-          <br>
-          Post ID: {{post.id}}
-          
-          </b>  
+          </b>   -->
        
           
-          <p>{{post.body|truncatewords:20}}</p>
+          <p>{{post.body|truncatewords:50}} 
+            <a href="/individual-feedback/{{post.id}}"> Read More </a>
+            <!-- Create an if statement that removes Read More if the post content is less than truncatewords-->
+          </p>
 
           {% if user == post.author_id %}
+          <!-- Add or statement for admins to delete post -->
           <br>
           <b> <a href="/delete/{{post.id}}">delete</a> </b>
           <!-- Alternative, doesn't matter <b> <a href="delete/{{post.id}}">delete</a> </b> -->
