@@ -6,7 +6,7 @@ class post_details(admin.ModelAdmin):
     list_display = ("author_id", "id","title", "body", "created_at")
 
 class destination_details(admin.ModelAdmin):
-    list_display = ("name", "country","label", "slug", "description", "price", "discount_price")
+    list_display = ("name", "country","label", "slug", "description", "price", "discount_price", "image")
 
 # admin.site.register(Post)
 admin.site.register(Post, post_details)

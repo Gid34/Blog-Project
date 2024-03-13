@@ -47,7 +47,6 @@ class Destination(models.Model):
     discount_price = models.FloatField(blank=True, null=True)
     
   
-
     def __str__(self):
         return self.name
 
@@ -56,6 +55,21 @@ class Destination(models.Model):
         return reverse("myapp:destinations", kwargs={
             'slug': self.slug
         })
+
+    #WORK ON THESE BELOW
+    # def get_req_add_to_log(self):
+    #     return reverse("core:add-to-cart", kwargs={
+    #     'slug': self.slug
+    #     })
+
+    #WORK ON THESE BELOW
+    # def get_req_remove_from_log(self):
+    #     return reverse("core:remove-from-cart", kwargs={
+    #         'slug': self.slug
+    #     })
+
+
+
 
 #Able to create Destination Object via admin
 

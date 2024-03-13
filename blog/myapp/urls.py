@@ -7,9 +7,7 @@ from .views import (
 app_name = 'myapp'
 
 urlpatterns = [
-    # path('', views.home_page, name = 'visitor home page'), #default homepage
     path('', views.home_page_logged_in, name = 'home page'),
-    # path('logged-in', views.home_page_logged_in, name = 'user home page'),
     path('register', views.register, name = 'register'),
     path('sign-in', views.sign_in, name = 'sign-in'),
     path('login', views.login, name = 'login'),

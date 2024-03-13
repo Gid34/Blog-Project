@@ -8,32 +8,24 @@ Travel Catalogue
     <h1>Travel Catalogue</h1>
      
     <main class="mt-5 pt-4">
-        <div class="container dark-grey-text mt-5">
-      
-          <!--Grid row-->
-        <div class="row wow fadeIn">
-      
-            <!--Grid column-->
-             <div class="col-md-6 mb-4">
+      <div class="card">
               
              
-              <h2>{{ object.name }}</h2>
+      <h2>{{ object.name }}</h2>
+      <p>Country: {{ object.get_country_display }} | {{ object.get_label_display }} </p>
+
+              <!-- We created a tuple for countries stored in models.py, label refers to Initials
+              display refers to the stored values-->
               <!-- <p>Country: {{ object.country }} | {{ object.label }} </p> -->
-              <p>Country: {{ object.get_country_display }} | {{ object.get_label_display }} </p>
-          
+      
+  <!--BELOW BROKEN-->
+          <div class="view overlay">
+          <img src="{{ destination.image.url }}" class="card-img-top"> <!--Supposed to run image-->
+            <!-- <img src="shinsaibashisuji_1.jpg" class="card-img-top">  <!Supposed to run image-->    
+          </div>
+  <!--END-->  
 
-              <!--Load Image. Find a way to fix broken image. think it's a path error
-              It doesn't even load despite being in the same folder path--> 
-              <!-- Find a way to fix image display--> 
-              <img src="/media/shinsaibashisuji_1.jpg"  width="460" height="345">  <!-- Still doesn't work--> 
-
-              <!-- TRY THIS: 
-                 <img src="{{ item.image.url }}" class="card-img-top">
-                 <img src="{{ destination.image.url }}" class="card-img-top"> -->
-              <!-- <img src="{{ object.image.url }}" class="card-img-top"> -->
-              
-            </div>
-            
+<!--Everything below WORKS-->         
             <!--Price-->
             <p class="lead">
               {% if object.discount_price %} <!--If object has a discount price-->
@@ -54,5 +46,6 @@ Travel Catalogue
           </div>  
 
         </div>
+      </div>
     </main> 
 {% endblock %}

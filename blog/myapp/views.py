@@ -23,10 +23,7 @@ from .forms import *
 
 def home_page_logged_in(request):
     return render(request, "base/home_page_logged_in.html")
-    
 
-def home_page(request):
-    return render(request, "base/home_page.html")
 
 def register(request):
     if request.method == 'POST':
@@ -164,17 +161,5 @@ def delete(request, pk):
 class DestinationDetailView(DetailView):
     model = Destination
     template_name = "base/destination_catalogue.html"
-    #The Problem was the path. Need to find fix for it to be uniform later
-
-#This Code is NOT THE FIX
-# def destinations(request):
-#     context = {
-#         'destinations': Destination.objects.all()
-#     }
-#     return render(request, "destination_catalogue.html", context)
-
-#Test for destinations
-# def test_destinations(request):
-#     return render(request, "base/destination_catalogue.html")
-
+ 
 
